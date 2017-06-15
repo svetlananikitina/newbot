@@ -14,12 +14,12 @@ http.createServer(function (req, res) {
     res.end('Hello bot!'); // end of response
 }).listen(myport); //the server object listens on port myport
 
+//Respond with Hello World! when a GET request is made to the homepage
 
-// app.get('/', function (req, res) {
-//     res.send('Hello I am chat bot')
-//
-// })
+app.get('/', function (req, res) {
+    res.send('Hello World')
 
+})
 
 
 app.listen(3000, function () {

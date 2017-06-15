@@ -24,3 +24,14 @@ function myFunction() {
 
 }
 
+var fetch = require('node-fetch');
+
+fetch('https://sleepy-sierra-80270.herokuapp.com/')
+    .then(function(res) {
+        return res.text();
+    }).then(function(body) {
+    console.log(body);
+});
+
+console.log('after');
+
