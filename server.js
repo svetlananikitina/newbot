@@ -32,7 +32,7 @@ app.get('/', function (req, res) {
     //handle the get for this route
     // res.header("Access-Control-Allow-Origin", "*");
     // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.send('Hello World');
+    res.send('Hello Bot!');
 
 })
 
