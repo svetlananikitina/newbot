@@ -26,7 +26,7 @@ app.use(function(req,res,next) {
     next();
 })
 
-app.get('/', function (req, res) {
+app.all('/', function (req, res) {
     //handle the get for this route
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
