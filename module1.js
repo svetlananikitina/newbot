@@ -28,7 +28,7 @@ function myFunction() {
 
 }
 
-var fetch = require('node-fetch');
+// var fetch = require('node-fetch');
 
 fetch('https://sleepy-sierra-80270.herokuapp.com/')
     .then(function(res) {

@@ -2,14 +2,14 @@ var http = require('http');
 var dt = require('./module1');
 var fetch = require('node-fetch');
 
+var http = require('http').Server(app);
+var request = require('request');
+
 // require('es6-promise').polyfill();
 // require('isomorphic-fetch');
 
-//var header = new Headers();
-
 const express = require('express');
 const app = express();
-
 const myport = process.env.PORT || 5000;
 
 //create a server object:
