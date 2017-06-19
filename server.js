@@ -3,6 +3,8 @@ var dt = require('./module1');
 // var fetch = require('node-fetch');
 // require('isomorphic-fetch');
 
+//var header = new Headers();
+
 
 const express = require('express');
 const app = express();
@@ -24,7 +26,7 @@ app.use(function(req,res,next) {
     next();
 })
 
-app.get('/', function (req, res) {
+app.get('/', function (req, res, next) {
     //handle the get for this route
     res.send('Hello World')
 
