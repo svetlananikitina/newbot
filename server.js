@@ -1,6 +1,6 @@
 var http = require('http');
 var dt = require('./module1');
-var fetch = require('node-fetch');
+// var fetch = require('node-fetch');
 // require('isomorphic-fetch');
 
 
