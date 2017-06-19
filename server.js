@@ -2,8 +2,8 @@ var http = require('http');
 var dt = require('./module1');
 var fetch = require('node-fetch');
 
-require('es6-promise').polyfill();
-require('isomorphic-fetch');
+// require('es6-promise').polyfill();
+// require('isomorphic-fetch');
 
 //var header = new Headers();
 
