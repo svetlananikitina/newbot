@@ -3,7 +3,7 @@ var http = require('http');
 var fetch = require('node-fetch');
 
 // var http = require('http').Server(app);
-var request = require('request');
+// var request = require('request');
 
 // require('es6-promise').polyfill();
 // require('isomorphic-fetch');
