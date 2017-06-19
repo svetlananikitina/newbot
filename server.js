@@ -1,5 +1,5 @@
 var http = require('http');
-var dt = require('./module1');
+// var dt = require('./module1');
 var fetch = require('node-fetch');
 
 var http = require('http').Server(app);
@@ -15,7 +15,7 @@ const myport = process.env.PORT || 5000;
 //create a server object:
 http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'}); //status code, response headers
-    res.write("Date and time are currently: " + dt.myDateTime());
+    res.write("Date and time are currently: ");
     res.end('Hello bot!'); // end of response
 }).listen(myport); //the server object listens on port myport
 
