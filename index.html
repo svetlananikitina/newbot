@@ -7,11 +7,17 @@
 </head>
 
 
-<body onload ="loadFruits()">
+<body>
 
-<button onclick="myFunction()"> Add your favorite fruit </button>
 
-<p id = "fruits"> </p>
+<input type ="text" id="txtinput" placeholder="Type your message here">
+<p>
+    <input type ="button" onClick="myFunction()" id="idbtn" value="Read TextField">
+
+    <input type ="button" onClick="myFunction2()" id="idbtn2" value="Start Chat">
+</p>
+
+<ul id="messages">
 
 <script src="module1.js">
 </script>
