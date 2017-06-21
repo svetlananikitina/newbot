@@ -46,8 +46,13 @@ var d = document.getElementById("message");
 d.addEventListener("keypress", submitMessage);
 
 function submitMessage () {
-    alert ("This text we send to Bot");
-    var message = document.getElementById("message").value;
+    if (event.keyCode == 13) {
+        alert("This text we send to Bot");
+        var message = document.getElementById("message").value;
+    }
+    else {
+        return false;
+    }
 }
 
 
