@@ -35,11 +35,21 @@ function createNode(element) {
 function append(parent, el) {
     return parent.appendChild(el); // Append the second parameter(element) to the first one
 }
-function submitMessage() {
+// function submitMessage2() {
+//     var message = document.getElementById("message").value;
+//   //  var messages = this.state.messages;
+//     messages.push(message);
+// }
+
+var d = document.getElementById("message");
+
+x.addEventListener("keypress", submitMessage);
+
+function submitMessage () {
+    alert ("This text we send to Bot");
     var message = document.getElementById("message").value;
-  //  var messages = this.state.messages;
-    messages.push(message);
 }
+
 
 
 // var fetch = require('node-fetch');
