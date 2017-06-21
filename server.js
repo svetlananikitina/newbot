@@ -1,10 +1,10 @@
 var http = require('http');
 // var dt = require('./module1');
 var fetch = require('node-fetch');
-var io = require('socket.io')(http);
+// var io = require('socket.io')(http);
 
 var querystring = require('querystring');
-
+const bodyParser = require('body-parser')
 // var http = require('http').Server(app);
 // var request = require('request');
 
@@ -15,6 +15,7 @@ const express = require('express');
 const app = express();
 const myport = process.env.PORT || 5000;
 
+const witUrl='https://api.wit.ai'
 //create a server object:
 // http.createServer(function (req, res) {
 //     res.writeHead(200, {'Content-Type': 'text/html'}); //status code, response headers
@@ -31,6 +32,9 @@ app.use(function(req,res,next) {
     next();
 })
 
+app.use(bodyParser.json())
+
+
 app.get('/', function (req, res) {
     //handle the get for this route
     // res.header("Access-Control-Allow-Origin", "*");
@@ -40,7 +44,28 @@ app.get('/', function (req, res) {
 })
 
 app.post('/', function(req, res) {
-    // Handle the post for this route
+    // get the content
+    const message = req.body.message
+    const sessionId = req.body.sessionId
+
+    fetch(witUrl+'/message?v=20170611&session_id='+sessionId+'&q='+message, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Bearer W5Y3RZQ4J5AJWJZXVP7R5RPVAVVHAVSW'
+        }
+    })
+        .then(r=> r.json())
+        .then(j =>
+    res.send(j)
+    )
+    .catch(e=> console.log('error in fetch with wit',e))
+
+
+
+
+
 });
 
 
@@ -89,31 +114,31 @@ function callback (res) {
     });
 }
 
-io.on('connection', function (socket) {
-    console.log('we have a connection');
-    socket.on('new-message', function (data) {
-        flow.series([
-            function(callback){
-                setTimeout(function(){
-                    chat_to_bot(data);
-                    console.log('I execute first');
-                    callback();
-                },400);
-            },
-            function(callback){
-                setTimeout(function(){
-                    chat_to_bot(['', data[1]]);
-                    console.log('I execute second');
-                    callback();
-                },500);
-            },
-            function(callback){
-                setTimeout(function(){
-                    chat_to_bot(['', data[1]]);
-                    console.log('I execute third');
-                    callback();
-                },600);
-            },
-        ]);
-    });
-});
+// io.on('connection', function (socket) {
+//     console.log('we have a connection');
+//     socket.on('new-message', function (data) {
+//         flow.series([
+//             function(callback){
+//                 setTimeout(function(){
+//                     chat_to_bot(data);
+//                     console.log('I execute first');
+//                     callback();
+//                 },400);
+//             },
+//             function(callback){
+//                 setTimeout(function(){
+//                     chat_to_bot(['', data[1]]);
+//                     console.log('I execute second');
+//                     callback();
+//                 },500);
+//             },
+//             function(callback){
+//                 setTimeout(function(){
+//                     chat_to_bot(['', data[1]]);
+//                     console.log('I execute third');
+//                     callback();
+//                 },600);
+//             },
+//         ]);
+//     });
+// });
