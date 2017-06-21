@@ -78,7 +78,15 @@ function chat_to_bot(data) {
     req.end();
 }
 
-function callback () {
+function callback (res) {
+    res.setEncoding('utf8');
+    res.on('data', function (chunk) {
+        if (body.type === 'msg') {
+            // sending to the client
+            io.emit('receive-message', body.msg);
+        }
+
+    });
 }
 
 io.on('connection', function (socket) {

@@ -55,7 +55,7 @@ function submitMessage () {
 
 // var fetch = require('node-fetch');
 
-function botResponse {}
+function botResponse () {}
 
 const ul = document.getElementById('messages');
 
