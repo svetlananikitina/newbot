@@ -43,7 +43,7 @@ function append(parent, el) {
 
 var d = document.getElementById("message");
 
-x.addEventListener("keypress", submitMessage);
+d.addEventListener("keypress", submitMessage);
 
 function submitMessage () {
     alert ("This text we send to Bot");
