@@ -37,7 +37,7 @@ function append(parent, el) {
 }
 function submitMessage() {
     var message = document.getElementById("message").value;
-    var messages = this.state.messages;
+  //  var messages = this.state.messages;
     messages.push(message);
 }
 

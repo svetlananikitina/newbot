@@ -10,14 +10,26 @@
 <body>
 
 
-<input type ="text" id="message" placeholder="Type your message here">
-<p>
-    <input type ="button" onClick="submitMessage()" id="idbtn2" value="Submit message">
-    <!--<input type ="button" onClick="myFunction()" id="idbtn" value="Read TextField">-->
+<input type ="text" id="message" placeholder="Type here to send message to the Bot">
 
-</p>
+var d = document.getElementById("message");
+
+x.addEventListener("keypress", submitMessage);
+
+function submitMessage () {
+alert ("This text we send to Bot");
+var message = document.getElementById("message").value;
+
+}
+
+
+
+<!--<p>-->
+    <!--<input type ="button" onClick="submitMessage()" id="idbtn2" value="Submit message">-->
+<!--</p>-->
 
 <ul id="messages">
+
 
 <script src="module1.js">
 </script>
