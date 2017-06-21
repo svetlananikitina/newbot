@@ -27,28 +27,24 @@
 //     document.getElementById("fruits").innerHTML = fruits;
 //
 // }
+var session_id = Math.random().toString(36).substring(7);
 
-function createNode(element) {
-    return document.createElement(element);
-}
-
-function append(parent, el) {
-    return parent.appendChild(el); // Append the second parameter(element) to the first one
-}
-// function submitMessage2() {
-//     var message = document.getElementById("message").value;
-//   //  var messages = this.state.messages;
-//     messages.push(message);
-// }
 
 var d = document.getElementById("message");
 
 d.addEventListener("keypress", submitMessage);
 
 function submitMessage () {
-    if (event.keyCode == 13) {
+    if (event.keyCode == 13 || event.which == 13) {
         alert("This text we send to Bot");
         var message = document.getElementById("message").value;
+        // var messages = this.state.messages;
+        messages.push(message);
+        // this.state.socket.emit("new-message", [message, session_id]);
+
+        xhttp.open("POST", "https://sleepy-sierra-80270.herokuapp.com/", true);
+        xhttp.send();
+
     }
     else {
         return false;
@@ -58,6 +54,8 @@ function submitMessage () {
 
 
 // var fetch = require('node-fetch');
+
+function botResponse {}
 
 const ul = document.getElementById('messages');
 
@@ -84,6 +82,14 @@ fetch('https://sleepy-sierra-80270.herokuapp.com/')
     })
 
 });
+
+function createNode(element) {
+    return document.createElement(element);
+}
+
+function append(parent, el) {
+    return parent.appendChild(el); // Append the second parameter(element) to the first one
+}
 
 console.log('after');
 
