@@ -35,6 +35,12 @@ function createNode(element) {
 function append(parent, el) {
     return parent.appendChild(el); // Append the second parameter(element) to the first one
 }
+function submitMessage() {
+    var message = document.getElementById("message").value;
+    var messages = this.state.messages;
+    messages.push(message);
+}
+
 
 // var fetch = require('node-fetch');
 
@@ -44,10 +50,11 @@ fetch('https://sleepy-sierra-80270.herokuapp.com/')
     .then(function(res) {
         return res.text();
     }).then(function(body) {
-    // console.log(body);
-   document.write(JSON.stringify(body));
+    console.log(body);
+   // document.write(JSON.stringify(body));
 
-    let messages = body.results;
+    // let messages = body;
+    let messages = ['hi', 'hehe', 'yhy'];
 
     return messages.map(function(body) {
         let li = createNode('li'), //create elements we need to display
