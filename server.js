@@ -48,8 +48,8 @@ app.post('/', function(req, res) {
     const message = req.body.message
     const sessionId = req.body.sessionId
 
-    fetch(witUrl+'/message?v=20170611&session_id='+sessionId+'&q='+message, {
-        method: 'GET',
+    fetch(witUrl+'/converse?v=20170611&session_id='+sessionId+'&q='+message, {
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
