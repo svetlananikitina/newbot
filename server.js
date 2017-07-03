@@ -4,7 +4,10 @@ var fetch = require('node-fetch');
 // var io = require('socket.io')(http);
 
 var querystring = require('querystring');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+
+var imageSearch = require('node-google-image-search');
+
 // var http = require('http').Server(app);
 // var request = require('request');
 
@@ -48,8 +51,8 @@ app.post('/', function(req, res) {
     const message = req.body.message
     const sessionId = req.body.sessionId
 
-    fetch(witUrl+'/message?v=20170611&session_id='+sessionId+'&q='+message, {
-        method: 'GET',
+    fetch(witUrl+'/converse?v=20170611&session_id='+sessionId+'&q='+message, {
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
@@ -60,10 +63,24 @@ app.post('/', function(req, res) {
         .then(j =>
     res.send(j)
     )
+    //     .then (function(j) {
+    //         res.send(j)
+    //         console.log(j);
+    //         var body = JSON.parse(j);
+    //         if (body.type === 'msg') {
+    //             res.send(body.msg)
+    //         }
+    //         if (body.type === 'action' && body.action === 'show_place') {
+    //             if (body.entities.location  && body.entities.location[0].value) {
+    //                 res.send('receive-message', ['https://s.inyourpocket.com/gallery/107415.jpg',
+    //                     'https://media-cdn.tripadvisor.com/media/photo-s/01/1a/aa/11/magestic-view-on-swisloch.jpg',
+    //                     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2N6AugSaEYx-d75dO-PTzONhmNdWGQ-fUOPfIuyITw9CDYnWy7w'])
+    //             }
+    //
+    //         }
+    //
+    //     })
     .catch(e=> console.log('error in fetch with wit',e))
-
-
-
 
 
 });
